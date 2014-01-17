@@ -5,7 +5,8 @@
 | |_| | |_| | |_| | |_| | | |_) | |_| / ___ \|  _ <| |_| |
  \___/|____/ \___/ \___/  |____/ \___/_/   \_\_| \_\____/
 
-META Reporistory for UDOO Yocto support
+META Reporistory for UDOO Yocto support 
+based on "Dora" Yocto branch
 
 The main steps are:
 
@@ -62,4 +63,12 @@ You can directly burn your sdcard with
 
 $: dd if=core-image-minimal-udoo-quad.sdcard of=/dev/yourSdCard bs=1M
 
+---
+
+A more complete image with Qt4 can be built using
+
+$: MACHINE="udoo-quad" source ./setup-environment build
+$: bitbake fsl-core-gui
+
+(and grab 10-15 coffes)
 
