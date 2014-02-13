@@ -36,9 +36,12 @@ $: cd sources
 $: git clone https://github.com/rongals/meta-ronga-udoo
 $: cd ..
 
-Enable the new layer
+Prepare the environment for the build
 
-edit the file "sources/base/conf/bblayers.conf" and change the section
+$: MACHINE="udoo-quad" source ./setup-environment build
+
+Then enable the new layer by editing the file "build/conf/bblayers.conf" 
+and change the section
 
   ${BSPDIR}/sources/meta-fsl-arm-extra \
   ${BSPDIR}/sources/meta-fsl-demos \
@@ -52,7 +55,6 @@ into
 
 Once this has complete, you will have all you need. To start a build, do:
 
-$: MACHINE="udoo-quad" source ./setup-environment build
 $: bitbake core-image-minimal
 
 The deployed images are found (starting from the build directory)
