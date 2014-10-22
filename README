@@ -5,8 +5,7 @@
 | |_| | |_| | |_| | |_| | | |_) | |_| / ___ \|  _ <| |_| |
  \___/|____/ \___/ \___/  |____/ \___/_/   \_\_| \_\____/
 
-META Reporistory for UDOO Yocto support 
-based on "Dora" Yocto branch
+META Repository for UDOO Yocto support based on "Dora" Yocto branch
 
 The main steps are:
 
@@ -30,15 +29,24 @@ $: cd fsl-community-bsp
 $: repo init -u https://github.com/Freescale/fsl-community-bsp-platform -b dora
 $: repo sync
 
-Download the meta-ronga-udoo layer
+Download the meta-ronga-udoo layer:
 
 $: cd sources
 $: git clone https://github.com/rongals/meta-ronga-udoo
 $: cd ..
 
-Prepare the environment for the build
+Prepare the environment for the build. If you have an UDOO Dual board,
+run:
 
-$: MACHINE="udoo-quad" source ./setup-environment build
+$: export MACHINE="udoo-dual"
+
+If you have an UDOO Quad board, run:
+
+$: export MACHINE="udoo-quad"
+
+Then run:
+
+$: source ./setup-environment build
 
 Then enable the new layer by editing the file "build/conf/bblayers.conf" 
 and change the section
@@ -57,13 +65,13 @@ Once this has complete, you will have all you need. To start a build, do:
 
 $: bitbake core-image-minimal
 
-The deployed images are found (starting from the build directory)
+The deployed images are found (starting from the build directory) in:
 
- tmp/deploy/images/udoo-quad/
+ tmp/deploy/images/$MACHINE
 
-You can directly burn your sdcard with
+You can directly burn your sdcard with:
 
-$: dd if=core-image-minimal-udoo-quad.sdcard of=/dev/yourSdCard bs=1M
+$: dd if=core-image-minimal-${MACHINE}.sdcard of=/dev/yourSdCard bs=1M
 
 ---
 
