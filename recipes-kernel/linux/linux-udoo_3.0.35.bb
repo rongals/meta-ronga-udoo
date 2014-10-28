@@ -4,7 +4,7 @@
 include linux-udoo.inc
 
 # Kernel_Unico is a branch from 3.0.35 so we apply the 3.0.35 patches
-SRCREV = "029e85168c08c8c9a8a6dd308b388599be608948"
+SRCREV = "8a6eb060a0d968048f88d5a94510fc6db2c37939"
 LOCALVERSION = "-3.0.35-udoo"
 
 # Patches need for Yocto and not applied by Freescale when doing 4.1.0 branch
